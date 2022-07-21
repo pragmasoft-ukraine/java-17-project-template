@@ -63,6 +63,11 @@
           <artifactId>dependency-check-maven</artifactId>
           <version>7.1.1</version>
         </plugin>
+        <plugin>
+          <groupId>net.revelc.code.formatter</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>2.19.0</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -119,6 +124,21 @@
             <phase>validate</phase>
             <goals>
               <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>net.revelc.code.formatter</groupId>
+        <artifactId>formatter-maven-plugin</artifactId>
+        <configuration>
+          <lineEnding>LF</lineEnding>
+          <configFile>${project.basedir}/eclipse-java-google-style.xml</configFile>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>validate</goal>
             </goals>
           </execution>
         </executions>
